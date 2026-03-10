@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Righteous", cursive;
+  
+  --color-graphene-0: #121212;
+  --color-graphene-1: #1c1c1c;
+  --color-graphene-2: #232323;
+  --color-graphene-3: #313131;
+  
+  --color-accent-1: #f23400;
+  --color-accent-2: #ffb700;
+  --color-positive: #23d160;
+  
+  --radius-rounding: 16px;
+}
+
+:root {
+  --padding-max: 65px;
+  --padding-side: 100px;
+  --coregrad: linear-gradient(45deg, #f23400, #ffb700);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #ffb700 #1f1f1f;
+  }
+
+  body {
+    background-color: var(--color-graphene-0);
+    color: #f2f0ff;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #ffb700;
+    color: #121212;
+  }
+}
+
+@keyframes coreanim {
+  0% { transform: rotate(360deg); }
+  80% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes shubanim {
+  0% { rotate: 0deg; }
+  50% { rotate: -45deg; }
+  60% { rotate: -45deg; }
+  100% { rotate: -360deg; }
+}
+
+@keyframes glitch-skew {
+  0% { transform: skew(0deg); }
+  20% { transform: skew(-1deg); }
+  40% { transform: skew(1deg); }
+  60% { transform: skew(-1deg); }
+  80% { transform: skew(1deg); }
+  100% { transform: skew(0deg); }
+}
+
+.animate-core {
+  animation: coreanim 2.625s cubic-bezier(0.76, 0, 0.24, 1) 0ms;
+}
+
+.glitch {
+  animation: glitch-skew 3s infinite linear alternate-reverse;
+}
+
+.coregrad-string {
+  background: linear-gradient(90deg, #f23400 0%, #ffb700 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.button-main {
+  background-image: var(--coregrad);
+  box-shadow: 0px 0px 12px 0px rgba(255, 183, 0, 0.5);
+}
+
+/* Custom scrollbar for Chrome/Safari */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f1f1f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffb700;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f23400;
+}
